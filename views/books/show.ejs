@@ -1,0 +1,12 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	
+  <h1><%= book.title %></h1>
+  <h2>This story <%= book.onGoing ? ' is on going!' : ' is complete!' %></h2>
+  <h2>Story by <%= book.writer %></h2>
+  <h2>Art by <%= book.artist %></h2>
+</section>
+
+<%- include('../partials/footer') %>

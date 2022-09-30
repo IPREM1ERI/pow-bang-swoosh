@@ -2,29 +2,34 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>💥COLLECTIONS💥</h1>
+  <h1>💥SERIES💥</h1>
   <% if (user) { %>
     <h2>Add New Series</h2>
     <form action="/books" method="POST">
       <label >
-        Name: 
+        Story: 
         <input type="text" name="title">
+      </label>
+      <label>
+        Writer:
+        <input type="text" name="writer">
+      </label>
+      <label>
+        Artist:
+        <input type="text" name="artist">
       </label>
       <label >
         Is story on going:
         <input type="checkbox" name="onGoing">
       </label>
-      <button type="submit">Add 🌮</button>
+      <button type="submit">Add Series</button>
     </form>
   <% } %>
-  <h2>All the Tacos!</h2>
-	<ul>
-  <% tacos.forEach(taco => { %>
+  <ul>
+  <% books.forEach(book => { %>
     <li>
-      🌮 
-      <a href="/tacos/<%= taco._id %>"><%= taco.name %></a>
-      is <%= taco.tasty ? 'tasty' : 'not tasty' %></li>
-  <% }) %>
+      <a href="/books/<%= book._id %>"><%= book.title %></a>
+    <% }) %>
   </ul>
 </section>
 
