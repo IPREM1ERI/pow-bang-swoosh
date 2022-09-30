@@ -1,0 +1,31 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>💥COLLECTIONS💥</h1>
+  <% if (user) { %>
+    <h2>Add New Series</h2>
+    <form action="/books" method="POST">
+      <label >
+        Name: 
+        <input type="text" name="title">
+      </label>
+      <label >
+        Is story on going:
+        <input type="checkbox" name="onGoing">
+      </label>
+      <button type="submit">Add 🌮</button>
+    </form>
+  <% } %>
+  <h2>All the Tacos!</h2>
+	<ul>
+  <% tacos.forEach(taco => { %>
+    <li>
+      🌮 
+      <a href="/tacos/<%= taco._id %>"><%= taco.name %></a>
+      is <%= taco.tasty ? 'tasty' : 'not tasty' %></li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>

@@ -22,8 +22,8 @@ const bookSchema = new Schema({
   timestamps: true
 })
 
-const Profile = mongoose.model('Profile', profileSchema)
+const Book = mongoose.model('Book', bookSchema)
 
 export {
-  Profile
+  Book
 }
