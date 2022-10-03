@@ -21,6 +21,7 @@ function show(req, res) {
   Profile.findById(req.params.id)
   .populate('ownBook')
   .then(profile => {
+    console.log(profile)
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render('profiles/show', {
       title: `👾 ${profile.name}'s collection`,
@@ -34,10 +35,27 @@ function show(req, res) {
   })
 }
 
+function addBook(req, res) {
+  console.log(req.params)
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.ownBook.push(req.params.bookId)
+    profile.save()
+    .then(() => {
+      res.redirect('/books')
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/profiles")
+  })
+  
+}
+
 
 
 export {
   index,
   show,
-
+  addBook
 }

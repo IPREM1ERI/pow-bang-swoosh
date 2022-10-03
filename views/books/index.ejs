@@ -29,9 +29,12 @@
   <% books.forEach(book => { %>
     <li>
       <a style="color: white"  href="/books/<%= book._id %>"><%= book.title %></a>
-      <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
-        <button>Delete 💥SERIES💥</button>
-      </form>
+ 
+      <% if (user) { %> 
+        <form action="/profiles/<%= user.profile._id %>/books/<%= book._id %>" method="POST">
+          <button>💥COLLECT SERIES💥</button>
+        </form>
+      <% } %> 
     <% }) %>
   </ul>
 </section>

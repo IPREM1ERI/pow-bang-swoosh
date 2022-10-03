@@ -14,8 +14,6 @@ function index(req, res) {
   })
 }
 
-
-
 function create(req, res) {
   req.body.onGoing = !!req.body.onGoing
   Book.create(req.body)
@@ -55,26 +53,26 @@ function createReview(req, res) {
   })
 }
 
-function edit(req, res) {
-  Book.findById(req.params.id)
-  .then(book => {
-    res.render('books/edit', {
-      book,
-      title: 'edit'
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/tacos')
-  })
-}
+// function edit(req, res) {
+//   Book.findById(req.params.id)
+//   .then(book => {
+//     res.render('books/edit', {
+//       book,
+//       title: 'edit'
+//     })
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect('/tacos')
+//   })
+// }
 
 export {
   index,
   create,
   show,
   createReview,
-  edit
+  //edit
 }
 
 
