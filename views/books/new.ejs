@@ -1,0 +1,21 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+	<h1><%= title %></h1>
+  
+    <select>
+      <% books.forEach(function(book) { %>
+        <option><%= book.title %></option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-book-form" action="/books" method="POST">
+    <label for="title-input">Title:</label>
+    <input type="text" name="title" id="title-input">
+    <label for="issue-input">Issue #:</label>
+    <button type="submit">Add Book</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

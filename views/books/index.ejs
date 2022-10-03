@@ -29,8 +29,13 @@
   <% books.forEach(book => { %>
     <li>
       <a style="color: white"  href="/books/<%= book._id %>"><%= book.title %></a>
+      <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+        <button>Delete 💥SERIES💥</button>
+      </form>
     <% }) %>
   </ul>
 </section>
+
+
 
 <%- include('../partials/footer') %>

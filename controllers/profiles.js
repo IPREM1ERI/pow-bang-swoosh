@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Book } from '../models/book.js'
 
 function index(req, res) {
   //console.log('profiles is hit')
@@ -16,11 +17,12 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  console.log('show is hit')
+  //console.log('show is hit')
   Profile.findById(req.params.id)
+  .populate('ownBook')
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
-    res.render('profile/show', {
+    res.render('profiles/show', {
       title: `👾 ${profile.name}'s collection`,
       profile,
       isSelf
@@ -32,7 +34,10 @@ function show(req, res) {
   })
 }
 
+
+
 export {
   index,
-  show
+  show,
+
 }
