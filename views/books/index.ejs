@@ -19,7 +19,7 @@
         <input type="text" name="artist">
       </label>
       <label >
-        Is story on going:
+        Is the story on going:
         <input type="checkbox" name="onGoing">
       </label>
       <button type="submit">Add Series</button>
@@ -28,7 +28,7 @@
   <ul>
   <% books.forEach(book => { %>
     <li>
-      <a href="/books/<%= book._id %>"><%= book.title %></a>
+      <a style="color: white"  href="/books/<%= book._id %>"><%= book.title %></a>
     <% }) %>
   </ul>
 </section>

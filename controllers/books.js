@@ -40,10 +40,24 @@ function show(req, res) {
   })
 }
 
+function createReview(req, res) {
+  Book.findById(req.params.id)
+  .then(book => {
+    book.reviews.push(req.body)
+    book.save()
+    res.redirect(`/books/${book._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
   create,
-  show
+  show,
+  createReview
 }
 
 
