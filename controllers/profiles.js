@@ -16,6 +16,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
+  console.log('show is hit')
   Profile.findById(req.params.id)
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
