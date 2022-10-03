@@ -6,7 +6,7 @@ function index(req, res) {
   .then(profiles => {
     res.render('profiles/index', {
       profiles,
-      title: Collector
+      title: 'Collector'
     })
   })
   .catch(err => {
@@ -15,6 +15,23 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    const isSelf = profile._id.equals(req.user.profile._id)
+    res.render('profile/show', {
+      title: `👾 ${profile.name}'s collection`,
+      profile,
+      isSelf
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/profiles")
+  })
+}
+
 export {
-  index
+  index,
+  show
 }
