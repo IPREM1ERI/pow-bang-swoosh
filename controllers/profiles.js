@@ -42,14 +42,29 @@ function addBook(req, res) {
     profile.ownBook.push(req.params.bookId)
     profile.save()
     .then(() => {
-      res.redirect('/books')
+      res.redirect('/profiles')
     })
   })
   .catch((err) => {
     console.log(err)
     res.redirect("/profiles")
   })
-  
+}
+
+function deleteBook(req, res) {
+  console.log('***DeleteBook fucntion***')
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.ownBook.remove({_id: req.params.id})
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
 }
 
 
@@ -57,5 +72,6 @@ function addBook(req, res) {
 export {
   index,
   show,
-  addBook
+  addBook,
+  deleteBook
 }

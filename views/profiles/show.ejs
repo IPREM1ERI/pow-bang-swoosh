@@ -34,8 +34,12 @@
         <%= b.title %> 
       </p>
       <% if (user)  {%> 
-        <form action="/profiles/<%= profile._id %>?_method=DELETE" method="POST">
-          <button>💥DELETE SERIES💥</button>
+        <form 
+          action="/profiles/books/<%= b._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline-block;"
+        >
+          <button class="btn" type="submit">💥DELETE SERIES💥</button>
         </form>
       <% } %>
     <%  }) %> 

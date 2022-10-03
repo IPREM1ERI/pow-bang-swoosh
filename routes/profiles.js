@@ -10,6 +10,8 @@ router.get('/:id', isLoggedIn, profilesCtrl.show)
 
 router.post('/:id/books/:bookId', isLoggedIn, profilesCtrl.addBook)
 
+router.delete('/books/:id', isLoggedIn, profilesCtrl.deleteBook)
+
 
 
 
