@@ -42,7 +42,7 @@ function addBook(req, res) {
     profile.ownBook.push(req.params.bookId)
     profile.save()
     .then(() => {
-      res.redirect('/profiles')
+      res.redirect('/books')
     })
   })
   .catch((err) => {

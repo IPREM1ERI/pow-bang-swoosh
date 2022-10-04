@@ -53,26 +53,36 @@ function createReview(req, res) {
   })
 }
 
-// function edit(req, res) {
-//   Book.findById(req.params.id)
-//   .then(book => {
-//     res.render('books/edit', {
-//       book,
-//       title: 'edit'
-//     })
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect('/tacos')
-//   })
-// }
+function edit(req, res) {
+  Book.findById(req.params.id)
+  .then(book => {
+    res.render('books/edit', {
+      book,
+      title: 'Edit Review'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function update(req, res) {
+  console.log(req.prarams.id, '***')
+  console.log(req.body,'***')
+  Book.findByIdAndUpdate(req.prarams.id, req.body, {new: true})
+  .then(book => {
+    res.redirect(`/books/${book._id}`)
+  })
+}
 
 export {
   index,
   create,
   show,
   createReview,
-  //edit
+  edit, 
+  update
 }
 
 
