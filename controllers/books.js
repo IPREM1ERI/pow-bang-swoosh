@@ -53,9 +53,11 @@ function createReview(req, res) {
   })
 }
 
-function edit(req, res) {
+function editReview(req, res) {
+  console.log(req.params.id, '***')
   Book.findById(req.params.id)
   .then(book => {
+    populate('reviews')
     res.render('books/edit', {
       book,
       title: 'Edit Review'
@@ -67,12 +69,23 @@ function edit(req, res) {
   })
 }
 
-function update(req, res) {
-  console.log(req.prarams.id, '***')
+function updateReview(req, res) {
+  console.log(req.params.id, '***')
   console.log(req.body,'***')
-  Book.findByIdAndUpdate(req.prarams.id, req.body, {new: true})
+  Book.findById(req.params.id)
   .then(book => {
-    res.redirect(`/books/${book._id}`)
+    if(book.reviews.equals(req.user.profile._id)) {
+      book.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/books/${book._id}`)
+      })
+    } else {
+      throw new Error('Not Allowed')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/books`)
   })
 }
 
@@ -81,8 +94,8 @@ export {
   create,
   show,
   createReview,
-  edit, 
-  update
+  editReview, 
+  updateReview
 }
 
 

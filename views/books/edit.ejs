@@ -1,3 +1,6 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
 <% if (user) { %>
   <form 
   id="edit-review-form"
@@ -5,7 +8,7 @@
   method="POST"
 >
   <label for="content-textarea">Review:</label>
-  <textarea name="Edit Review" id="content-textarea"></textarea>
+  <textarea name="content" id="content-textarea"></textarea>
   <label for="rating-select">Rating:</label>
   <select name="rating" id="rating-select">
     <option value="1">1</option>
@@ -17,6 +20,8 @@
   <button type="submit">Save Review</button>
   </form>
 <% } %>
+
+<%- include('../partials/footer') %>
 
 
 
