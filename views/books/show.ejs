@@ -46,7 +46,14 @@
             <td><%= review.createdAt.toLocaleDateString() %></td>
             <td><%= review.content %></td>
             <td><%= review.rating %></td>
+            <td><% if (user) { %>
+              <a href="/books/<%= book._id %>/reviews/<%= review._id %>/edit">
+                <button class="btn">Edit Review</button>
+              </a>
+            <% } %>
+          </td>
           </tr>
+
         <% }) %>
         <tr>
           <td colspan="2"></td>
@@ -56,13 +63,10 @@
         </tr>
       </tbody>
     </table>
+   
   <% } else { %>
     <h3>No Reviews Yet</h3>
   <% } %>
 
-  <% if (user) { %>
-    <a href="/books/<%= book._id %>/edit">
-      <button class="btn">Edit Review</button>
-    </a>
-  <% } %>
+ 
 <%- include('../partials/footer') %>

@@ -36,13 +36,12 @@ function show(req, res) {
 }
 
 function addBook(req, res) {
-  console.log(req.params)
   Profile.findById(req.params.id)
   .then(profile => {
     profile.ownBook.push(req.params.bookId)
     profile.save()
     .then(() => {
-      res.redirect('/books')
+      res.redirect(`/profiles/${req.user.profile._id}`)
     })
   })
   .catch((err) => {

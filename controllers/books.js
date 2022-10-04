@@ -41,6 +41,9 @@ function show(req, res) {
 }
 
 function createReview(req, res) {
+  console.log(req.body)
+  req.body.owner = req.user.profile._id
+  console.log(req.body)
   Book.findById(req.params.id)
   .then(book => {
     book.reviews.push(req.body)
@@ -54,13 +57,18 @@ function createReview(req, res) {
 }
 
 function editReview(req, res) {
-  console.log(req.params.id, '***')
+  console.log(req.params.id, '*')
   Book.findById(req.params.id)
   .then(book => {
-    populate('reviews')
+    const review = book.reviews.id(req.params.reviewId)
+    console.log('$$$', review, '$$$')
+    if (!review.owner.equals(req.user.profile._id)) {
+      return res.redirect(`/books/${book._id}`)
+    }
     res.render('books/edit', {
       book,
-      title: 'Edit Review'
+      title: 'Edit Review',
+      review,
     })
   })
   .catch(err => {
@@ -70,23 +78,25 @@ function editReview(req, res) {
 }
 
 function updateReview(req, res) {
-  console.log(req.params.id, '***')
-  console.log(req.body,'***')
+  // console.log(req.params.id, '***')
+  // console.log(req.body,'***')
   Book.findById(req.params.id)
-  .then(book => {
-    if(book.reviews.equals(req.user.profile._id)) {
-      book.updateOne(req.body)
+    .then (book => {
+      const review = book.reviews.id(req.params.reviewId)
+      if (!review.owner.equals(req.user.profile._id)) {
+        return res.redirect(`/books/${book._id}`)
+      }
+      console.log(req.body)
+      review.content = req.body.content
+      book.save()
       .then(() => {
         res.redirect(`/books/${book._id}`)
       })
-    } else {
-      throw new Error('Not Allowed')
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/books`)
-  })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
 }
 
 export {

@@ -4,7 +4,7 @@
 <% if (user) { %>
   <form 
   id="edit-review-form"
-  action="/books/<%= book._id %>?_method=PUT"
+  action="/books/<%= book._id %>/reviews/<%= review._id %>?_method=PUT"
   method="POST"
 >
   <label for="content-textarea">Review:</label>
@@ -20,6 +20,7 @@
   <button type="submit">Save Review</button>
   </form>
 <% } %>
+
 
 <%- include('../partials/footer') %>
 
