@@ -61,7 +61,7 @@ function editReview(req, res) {
   Book.findById(req.params.id)
   .then(book => {
     const review = book.reviews.id(req.params.reviewId)
-    console.log('$$$', review, '$$$')
+    //console.log('$$$', review, '$$$')
     if (!review.owner.equals(req.user.profile._id)) {
       return res.redirect(`/books/${book._id}`)
     }
@@ -69,6 +69,7 @@ function editReview(req, res) {
       book,
       title: 'Edit Review',
       review,
+      
     })
   })
   .catch(err => {
