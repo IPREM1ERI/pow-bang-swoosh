@@ -17,7 +17,8 @@ body {
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
-  margin: 0;
+    
+
 }
 
 nav {
@@ -71,6 +72,7 @@ a {
   color: black;
   text-decoration: none;
   
+  
 }
 
 pre {
@@ -104,3 +106,4 @@ nav > a {
 text-align: center;
 
 }
+
