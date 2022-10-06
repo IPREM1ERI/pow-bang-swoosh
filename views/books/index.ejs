@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/index.css">
 <%- include('../partials/nav') %>
 
 <section>
   <h1>💥SERIES💥</h1>
   <% if (user) { %>
     <h2>Add New Series</h2>
-    <form action="/books" method="POST">
+    <form class="add-series" action="/books" method="POST">
       <label >
         Story: 
         <input type="text" name="title">
@@ -29,12 +30,13 @@
   <% books.forEach(book => { %>
     <li>
       <a style="color: white"  href="/books/<%= book._id %>"><%= book.title %></a>
- 
+      <div class="collection-container">
       <% if (user) { %> 
         <form action="/profiles/<%= user.profile._id %>/books/<%= book._id %>" method="POST">
-          <button>💥COLLECT💥</button>
+          <button id="collect-btn">💥COLLECT💥</button>
         </form>
-      <% } %> 
+      <% } %>
+    </div> 
     <% }) %>
   </ul>
 </section>

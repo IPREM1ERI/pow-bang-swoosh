@@ -26,4 +26,5 @@ Don't want to sign in to a wonky site created by someone who is learning, no wor
 - Add chat area for user to discuss series
 - Add Alphabetical organization in series/collections page
 
-[Planning Materials can be view here](https://trello.com/b/VC4I8WdV/pow-bang-swoosh)
+## **Planning Materials**
+[Planning Materials can be viewed here](https://trello.com/b/VC4I8WdV/pow-bang-swoosh)
