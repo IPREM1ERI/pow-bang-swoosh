@@ -30,11 +30,12 @@
 
   <section>
     <% profile.ownBook.forEach(b => { %>
-      <p>
+      <p class="book-collected">
         <%= b.title %> 
       </p>
       <% if (user)  {%> 
         <form 
+          
           action="/profiles/books/<%= b._id %>?_method=DELETE"
           method="POST"
           style="display: inline-block;"
