@@ -105,6 +105,8 @@ nav > a {
 section.board {
   display:flex;
   justify-content: space-evenly;
+  padding: 0;
+  height: 20%
 }
 
 footer > section {
@@ -115,8 +117,60 @@ footer > section {
   width: 100%;
   bottom: 0;
 }
+.board-space {
+  width: 12.5%;
+  min-height: 100%;
+  padding: 0;
+}
 
 #image1 {
-  background-image: url(https://villainfromtheunderworld.tumblr.com/image/613669699557965824);
+  background-image: url(assets/jokergif.gif);
   background-size: cover;
+  background-position: center;
+  
+  
+  
+}
+
+#image2 {
+  background-image: url(assets/one-punch-man-manga1.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+#image3 {
+  background-image: url(assets/spideman.gif);
+  background-size: 97%;
+  
+  background-position: top;
+}
+
+#image4 {
+  background-image: url(assets/guts_griffith.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+#image5 {
+  background-image: url(assets/xmen.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+#image6 {
+  background-image: url(assets/dragonballgif.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+#image7 {
+  background-image: url(assets/batmangif.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+#image8 {
+  background-image: url(assets/vagabond2.gif);
+  background-size: cover;
+  background-position: left;
 }
