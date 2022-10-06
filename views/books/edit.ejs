@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/detailsShow.css">
 <%- include('../partials/nav') %>
 
 <% if (user) { %>
@@ -10,7 +11,7 @@
   <label for="content-textarea">Review:</label>
   <textarea name="content" id="content-textarea"></textarea>
 
-  <button type="submit">Save Review</button>
+  <button id="save-review" type="submit">Save Review</button>
   </form>
 <% } %>
 

@@ -33,18 +33,23 @@
     <table>
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <% let total = 0 %> 
+        
+        <% let total = 0 %>
+        
         <% book.reviews.forEach(function(review) { %>
+          <ul>
+          <li>
           <% total += review.rating %>
-          <tr>
-            <td><%= review.createdAt.toLocaleDateString() %></td>
+          <tr class="reviews-container">
+            <td><%= review.createdAt.toLocaleDateString() %> %></td>
             <td><%= review.content %></td>
+            <th>Rating</th>
             <td><%= review.rating %></td>
             <td><% if (user) { %>
               <a href="/books/<%= book._id %>/reviews/<%= review._id %>/edit">
@@ -53,14 +58,16 @@
             <% } %>
           </td>
           </tr>
-
+          </li>
+        </ul>
         <% }) %>
         <tr>
           <td colspan="2"></td>
           <td>
-            <strong><%= (total / book.reviews.length).toFixed(1) %></strong>
+            <strong>Review Avearge <%= (total / book.reviews.length).toFixed(1) %></strong>
           </td>
         </tr>
+     
       </tbody>
     </table>
    
