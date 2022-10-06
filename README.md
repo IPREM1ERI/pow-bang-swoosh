@@ -22,10 +22,11 @@ Don't want to sign in to a wonky site created by someone who is learning, no wor
 
 - Add ability to add series from the collections page
 - Add ability for users to add pictures of the series
-- Add Admin privalges, to moderate site content
+- Add Admin privileges, to moderate site content
 - Add ability for user/guest to search by Artist/Writer
 - Add chat area for user to discuss series
 - Add Alphabetical organization in series/collections page
+- Clean up some of the UI, make it less cluttered
 
 ## **Planning Materials**
 [Planning Materials can be viewed here](https://trello.com/b/VC4I8WdV/pow-bang-swoosh)
