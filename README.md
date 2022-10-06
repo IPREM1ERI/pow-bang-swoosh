@@ -1,4 +1,5 @@
 # **POW-BANG-SWOOSH**
+![](./assets/gamepic.PNG)
 
 POW-BANG-SWOOSH is a review/collection site for comics and manga. Users can add a series to the Series page, so other users can read or leave reviews on them. If you personlly own a series on the Series page, add it to your Collections page. POW-BANG-SWOOSH can serve as place to keep track of what you currently own. You can also see what other users are collecting to compare how your collection stacks up.
 

@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-
+<link rel="stylesheet" href="/stylesheets/profiles/show.css">
 <%- include('../partials/nav') %>
 
 <main>
@@ -10,7 +10,7 @@
       alt="<%= profile.name %>'s avatar"
     >
   </div>
-  <h1>COLLECTION</h1>
+  <h1 >COLLECTION</h1>
   <% if (user)  {%> 
   <h2>Add a Book</h2>
   <form action="/profiles/<%= profile._id %>/new" method="POST">
@@ -22,30 +22,28 @@
       Issue/Volume #: 
       <input type="number" name="issue" autocomplete="off">
     </label>
-  
     <button type="submit">Add💥Book</button>
   </form>
-
 <% } %>
-
-  <section>
+<ul>
+  <section class="collection">
     <% profile.ownBook.forEach(b => { %>
-      <p class="book-collected">
+      <li>
+        <p>
         <%= b.title %> 
-      </p>
-      <% if (user)  {%> 
-        <form 
-          
-          action="/profiles/books/<%= b._id %>?_method=DELETE"
-          method="POST"
-          style="display: inline-block;"
-        >
-          <button class="btn" type="submit">💥DELETE SERIES💥</button>
-        </form>
+        </p>
+        <% if (user)  {%> 
+          <form 
+            action="/profiles/books/<%= b._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">💥REMOVE SERIES💥</button>
+          </form>
       <% } %>
+    </li> 
     <%  }) %> 
   </section>
-
+</ul>
 </main>
 
 <%- include('../partials/footer') %>
